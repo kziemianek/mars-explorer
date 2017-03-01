@@ -1,0 +1,29 @@
+.card-container {
+    width: calc(25% - 20px);
+    padding: 10px;
+    min-width: 200px;
+}
+
+.card-container img {
+    width: 100%;
+}
+
+@media(max-width: 600px) {
+    .card-container {
+        width: 100%;
+    }
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fetch-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.fetch-button {
+    width: 200px;
+}

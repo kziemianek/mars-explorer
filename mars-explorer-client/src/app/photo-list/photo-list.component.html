@@ -1,0 +1,17 @@
+<div class="photos">
+  <div class="card-container" *ngFor="let photo of photos">
+    <md-card>
+      <md-card-header>
+        <md-card-title>{{photo.roverName}}</md-card-title>
+        <md-card-subtitle>{{photo.cameraName}}, {{photo.earthDate}}</md-card-subtitle>
+      </md-card-header>
+      <md-card-content>
+        <img [lazyLoad]="photo.imgSrc" [offset]="offset">
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
+
+<div class="fetch-button-wrapper">
+  <button md-raised-button class="fetch-button" color="primary" (click)="fetchNextPhotos.emit()">more...</button>
+</div>
