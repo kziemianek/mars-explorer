@@ -19,7 +19,7 @@ get = function (page, pageSize) {
     return new Promise((resolve, reject) => {
         MongoClient.connect(url, function (err, db) {
             var collection = db.collection('photos');
-            collection.find().skip(page * pageSize).limit(pageSize).toArray(function (err, photos) {
+            collection.find().sort({ earthDate: -1 }).skip(page * pageSize).limit(pageSize).toArray(function (err, photos) {
                 resolve(photos);
                 db.close();
             })
