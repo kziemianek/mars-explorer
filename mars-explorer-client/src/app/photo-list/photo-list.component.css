@@ -2,6 +2,11 @@
     width: calc(25% - 20px);
     padding: 10px;
     min-width: 200px;
+    display: flex;
+}
+
+.mat-card {
+    width:100%;
 }
 
 .card-container img {

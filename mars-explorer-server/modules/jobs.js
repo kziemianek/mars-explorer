@@ -13,8 +13,7 @@ var start = function () {
 }
 function fetchPhotos(roverName, today) {
     nasaGateway.fetchPhotos(roverName, today)
-        .then(function (body) {
-            var photos = JSON.parse(body).photos;
+        .then(function (photos) {
             photosRepository.insert(photos);
         })
 };
