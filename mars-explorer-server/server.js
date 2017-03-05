@@ -8,7 +8,7 @@ var init = require('./modules/init')
 init.init();
 
 app.use(cors());
-app.use('/photos', require('./modules/photos-routes'));
+app.use('/api/photos', require('./modules/photos-routes'));
 jobs.start();
     
 

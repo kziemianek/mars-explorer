@@ -13,7 +13,7 @@ var app = express();
 app.use(express.static(dist))
 
 
-app.use('/photos', require('./mars-explorer-server/modules/photos-routes'));
+app.use('/api/photos', require('./mars-explorer-server/modules/photos-routes'));
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(dist, 'index.html'))

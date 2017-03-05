@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class NasaService {
 
-  PHOTOS_URL: string = '/photos';
+  PHOTOS_URL: string = 'api/photos';
 
   constructor(private http: Http) { }
 
