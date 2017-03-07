@@ -17,4 +17,8 @@ export class PhotoListComponent {
 
   constructor() { }
 
+  share(imgUrl) {
+    window.open(`http://www.facebook.com/sharer.php?u=${imgUrl}`, "", 'width=626,height=436');
+  }
+
 }
