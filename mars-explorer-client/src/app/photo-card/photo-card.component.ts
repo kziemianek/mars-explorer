@@ -10,7 +10,6 @@ export class PhotoCardComponent implements OnInit {
 
   @Input()
   photo: Photo;
-  private offset = 100;
 
   constructor() { }
 

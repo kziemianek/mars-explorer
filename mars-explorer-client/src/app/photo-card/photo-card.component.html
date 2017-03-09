@@ -4,7 +4,7 @@
     <md-card-subtitle>{{photo.cameraName}}, {{photo.earthDate | date: 'dd/MM/yyyy'}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
-    <img [lazyLoad]="photo.imgSrc" [offset]="offset">
+    <img [lazyLoad]="photo.imgSrc">
     <button (click)="share(photo.imgSrc)" md-icon-button><md-icon>share</md-icon></button>
   </md-card-content>
 </md-card>

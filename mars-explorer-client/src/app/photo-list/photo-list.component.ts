@@ -10,15 +10,9 @@ export class PhotoListComponent {
 
   @Input()
   photos: Photo[];
-  private offset = 100;
 
   @Output()
   fetchNextPhotos = new EventEmitter();
 
   constructor() { }
-
-  share(imgUrl) {
-    window.open(`http://www.facebook.com/sharer.php?u=${imgUrl}`, "", 'width=626,height=436');
-  }
-
 }

@@ -1,15 +1,6 @@
 <div class="photos">
   <div class="card-container" *ngFor="let photo of photos">
-    <md-card>
-      <md-card-header>
-        <md-card-title>{{photo.roverName}}</md-card-title>
-        <md-card-subtitle>{{photo.cameraName}}, {{photo.earthDate | date: 'dd/MM/yyyy'}}</md-card-subtitle>
-      </md-card-header>
-      <md-card-content>
-        <img [lazyLoad]="photo.imgSrc" [offset]="offset">
-        <button (click)="share(photo.imgSrc)" md-icon-button><md-icon>share</md-icon></button>
-      </md-card-content>
-    </md-card>
+      <app-photo-card [photo]="photo"></app-photo-card>
   </div>
 </div>
 
