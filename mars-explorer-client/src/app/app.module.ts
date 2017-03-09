@@ -7,11 +7,13 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
 
 import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { PhotoCardComponent } from './photo-card/photo-card.component';
 import { NasaService } from './nasa.service';
 @NgModule({
   declarations: [
     AppComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    PhotoCardComponent
   ],
   imports: [
     BrowserModule,
