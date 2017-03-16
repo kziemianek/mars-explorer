@@ -11,6 +11,8 @@ export class PhotoCardComponent implements OnInit {
   @Input()
   photo: Photo;
 
+  defaultImg = './assets/icons/mars-ico-256.png';
+
   constructor() { }
 
   ngOnInit() {

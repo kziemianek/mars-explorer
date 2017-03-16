@@ -1,13 +1,9 @@
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+img {
+  transition: opacity 1s;
+  opacity: 0.5;
+  width: 100%;
 }
 
-img {
-    width:100%;
-    animation: fadein 1s;
+img.ng2-lazyloaded {
+  opacity: 1;
 }

@@ -32,3 +32,7 @@
 .fetch-button {
     width: 200px;
 }
+
+app-photo-card {
+    width:100%;
+}
