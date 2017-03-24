@@ -4,7 +4,6 @@ var photosRepo = require('./photos-repository');
 
 let roverName = 'curiosity';
 
-
 // fetches new photos
 function init() {
     console.log('finding max photos date');
