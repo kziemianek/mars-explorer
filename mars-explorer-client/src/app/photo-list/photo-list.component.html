@@ -1,7 +1,13 @@
-<div class="photos">
+<div class="photos-grid" *ngIf="layoutService.isGridView()">
   <div class="card-container" *ngFor="let photo of photos">
-      <app-photo-card [photo]="photo"></app-photo-card>
+      <app-photo-card [photo]="photo" (share)="share($event)"></app-photo-card>
   </div>
+</div>
+
+<div *ngIf="layoutService.isListView()">
+  <md-list>
+    <app-photo-row *ngFor="let photo of photos" [photo]="photo" (share)="share($event)"></app-photo-row>
+  </md-list>
 </div>
 
 <div class="fetch-button-wrapper">

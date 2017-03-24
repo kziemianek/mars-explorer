@@ -19,7 +19,7 @@
     }
 }
 
-.photos {
+.photos-grid {
     display: flex;
     flex-wrap: wrap;
 }

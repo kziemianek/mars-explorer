@@ -1,0 +1,8 @@
+<md-list-item (click)="openPreview()">
+  <img md-list-avatar [lazyLoad]="photo.imgSrc" [defaultImage]="defaultImg">
+  <h3 md-line>{{photo.earthDate | date: 'dd/MM/yyyy'}} </h3>
+  <p md-line>
+    <span> {{photo.cameraName}} </span>
+  </p>
+  <button (click)="share.emit(photo.imgSrc)" md-icon-button><md-icon>share</md-icon></button>
+</md-list-item>

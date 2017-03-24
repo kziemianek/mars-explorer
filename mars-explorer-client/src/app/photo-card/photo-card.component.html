@@ -5,6 +5,6 @@
   </md-card-header>
   <md-card-content>
     <img [lazyLoad]="photo.imgSrc" [defaultImage]="defaultImg">
-    <button (click)="share(photo.imgSrc)" md-icon-button><md-icon>share</md-icon></button>
+    <button (click)="share.emit(photo.imgSrc)" md-icon-button><md-icon>share</md-icon></button>
   </md-card-content>
 </md-card>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Photo } from './photo';
 import { NasaService } from './nasa.service';
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
   photos: Photo[] = [];
   page = 0;
   pageSize = 12;
-  constructor(private nasaService: NasaService) {
+
+  constructor(private nasaService: NasaService, public layoutService: LayoutService) {
 
   }
 

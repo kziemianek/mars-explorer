@@ -1,0 +1,9 @@
+img {
+  transition: opacity 1s;
+  opacity: 0.5;
+  width: 100%;
+}
+
+img.ng2-lazyloaded {
+  opacity: 1;
+}
