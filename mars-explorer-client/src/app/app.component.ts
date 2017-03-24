@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'mex, the mars explorer';
   photos: Photo[] = [];
   page = 0;
-  pageSize = 10;
+  pageSize = 12;
   constructor(private nasaService: NasaService) {
 
   }
