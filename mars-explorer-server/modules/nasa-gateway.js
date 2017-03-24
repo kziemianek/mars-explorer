@@ -14,6 +14,8 @@ var fetchPhotos = function (roverName, date) {
                 roverName: photo.rover.name
             }
         })
+    }, (error) => {
+        console.log(`fetching photos error: ${error.message}`);
     });
 }
 
