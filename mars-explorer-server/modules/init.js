@@ -8,7 +8,7 @@ let roverName = 'curiosity';
 function init() {
     console.log('finding max photos date');
     photosRepo.findLastPhotosDate(roverName).then((date) => {
-        let lastDate = date || moment().subtract(5, 'days')
+        let lastDate = date || moment().subtract(700, 'days')
         let actualDate = moment().subtract(1, 'days');
         while (lastDate.add(1, 'day').diff(actualDate, 'days') < 0) {
             console.log(`fetching photos for date ${lastDate}`);
