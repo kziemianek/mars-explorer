@@ -1,0 +1,6 @@
+<form>
+  <md-select placeholder="Camera" [(ngModel)]="filtersService.cameraCode" (change)="apply()" name="cameraCode">
+    <md-option *ngFor="let camera of cameras" [value]="camera.code">{{ camera.name }}</md-option>
+  </md-select>
+
+</form>

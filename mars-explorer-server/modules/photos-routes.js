@@ -4,8 +4,9 @@ var photosRepository = require('./photos-repository');
 
 router.get('/', function (req, res) {
     let page = req.query.page;
-    let pageSize = req.query.pageSize
-    photosRepository.get(parseInt(page), parseInt(pageSize)).then((photos) => res.send(photos));
+    let pageSize = req.query.pageSize;
+    let camera = req.query.camera;
+    photosRepository.get(parseInt(page), parseInt(pageSize), camera).then((photos) => res.send(photos));
 });
 
 router.delete('/', function (req, res) {

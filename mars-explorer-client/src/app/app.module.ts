@@ -11,16 +11,20 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoCardComponent } from './photo-card/photo-card.component';
 import { PhotoRowComponent } from './photo-row/photo-row.component';
 import { NasaService } from './nasa.service';
-import { LayoutService} from './layout.service';
+import { LayoutService } from './layout.service';
 import { ShareService } from './share.service';
+import { PhotosService } from './photos.service';
+import { FiltersService } from './filters.service';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
+import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     PhotoListComponent,
     PhotoCardComponent,
     PhotoRowComponent,
-    PhotoDialogComponent
+    PhotoDialogComponent,
+    FiltersDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +34,8 @@ import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
     LazyLoadImageModule,
     BrowserAnimationsModule
   ],
-  providers: [NasaService, LayoutService, ShareService],
+  providers: [NasaService, LayoutService, ShareService, PhotosService, FiltersService],
   bootstrap: [AppComponent],
-  entryComponents: [PhotoDialogComponent]
+  entryComponents: [PhotoDialogComponent, FiltersDialogComponent]
 })
 export class AppModule { }

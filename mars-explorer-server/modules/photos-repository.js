@@ -15,11 +15,15 @@ insert = function (photos) {
     });
 };
 
-get = function (page, pageSize) {
+get = function (page, pageSize, camera) {
     return new Promise((resolve, reject) => {
         MongoClient.connect(url, function (err, db) {
             var collection = db.collection('photos');
-            collection.find().sort({ earthDate: -1 }).skip(page * pageSize).limit(pageSize).toArray(function (err, photos) {
+            let query = {};
+            if(camera) {
+                query.cameraName = camera;
+            }
+            collection.find(query).sort({ earthDate: -1 }).skip(page * pageSize).limit(pageSize).toArray(function (err, photos) {
                 resolve(photos);
                 db.close();
             })

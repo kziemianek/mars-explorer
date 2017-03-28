@@ -12,10 +12,15 @@ export class NasaService {
 
   constructor(private http: Http) { }
 
-  fetchPhotos(page, pageSize): Promise<Photo[]> {
+  fetchPhotos(page, pageSize, cameraCode: string): Promise<Photo[]> {
     let search: URLSearchParams = new URLSearchParams();
     search.set('page', page);
     search.set('pageSize', pageSize);
+
+    if(cameraCode) {
+      search.set('camera', cameraCode);
+    }
+
     return this.http.get(this.PHOTOS_URL, { search }).toPromise().then(response => {
       return response.json()
     })

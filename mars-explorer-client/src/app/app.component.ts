@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Photo } from './photo';
 import { NasaService } from './nasa.service';
 import { LayoutService } from './layout.service';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { FiltersDialogComponent} from './filters-dialog/filters-dialog.component';
+import { FiltersService } from './filters.service';
+import { PhotosService } from './photos.service';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +14,25 @@ import { LayoutService } from './layout.service';
 })
 export class AppComponent implements OnInit {
   title = 'mex, the mars explorer';
-  photos: Photo[] = [];
-  page = 0;
-  pageSize = 12;
+  
 
-  constructor(private nasaService: NasaService, public layoutService: LayoutService) {
+  constructor(public photosService: PhotosService, public layoutService: LayoutService, private dialog: MdDialog, private filtersService: FiltersService) {
 
   }
 
   ngOnInit() {
-    this.fetchPhotos(this.page, this.pageSize);
+    this.fetchPhotos( this.filtersService.cameraCode);
   }
 
   fetchNextPhotos() {
-    this.page++;
-    this.fetchPhotos(this.page, this.pageSize);
+    this.fetchPhotos( this.filtersService.cameraCode);
   }
 
-  private fetchPhotos(page, pageSize) {
-    this.nasaService.fetchPhotos(page, pageSize).then((photos) => {
-      this.photos = this.photos.concat(photos);
-    })
+  openFilters() {
+    this.dialog.open(FiltersDialogComponent)
+  }
+
+  private fetchPhotos(cameraCode: string) {
+    this.photosService.fetchNextPage( this.filtersService.cameraCode);
   }
 }

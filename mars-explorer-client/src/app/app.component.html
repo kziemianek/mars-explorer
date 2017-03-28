@@ -14,9 +14,13 @@
           <md-icon>dehaze</md-icon>
           <span>List</span>
         </button>
+        <button md-menu-item (click)="openFilters()">
+          <md-icon>filter_list</md-icon>
+          <span>Filter</span>
+        </button>
       </md-menu>
     </div>
   </div>
 </md-toolbar>
 
-<app-photo-list [photos]="photos" (fetchNextPhotos)="fetchNextPhotos()"></app-photo-list>
+<app-photo-list [photos]="photosService.photo$ | async" (fetchNextPhotos)="fetchNextPhotos()"></app-photo-list>
