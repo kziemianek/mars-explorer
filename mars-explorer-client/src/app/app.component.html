@@ -22,5 +22,4 @@
     </div>
   </div>
 </md-toolbar>
-
-<app-photo-list [photos]="photosService.photo$ | async" (fetchNextPhotos)="fetchNextPhotos()"></app-photo-list>
+<app-photo-list [photos]="photosService.photo$ | async" (fetchNextPhotos)="fetchNextPhotos()" [isFetching]="photosService.isFetching$ | async"></app-photo-list>

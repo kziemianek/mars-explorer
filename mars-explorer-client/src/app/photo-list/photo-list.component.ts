@@ -16,8 +16,13 @@ export class PhotoListComponent {
   @Input()
   mode: string;
 
+  @Input()
+  isFetching: boolean;
+
   @Output()
   fetchNextPhotos = new EventEmitter();
+
+  spinerMode = "indeterminate"
 
   constructor(public layoutService: LayoutService, private shareService: ShareService) { }
 

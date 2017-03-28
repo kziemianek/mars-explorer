@@ -1,6 +1,6 @@
 <div class="photos-grid" *ngIf="layoutService.isGridView()">
   <div class="card-container" *ngFor="let photo of photos">
-      <app-photo-card [photo]="photo" (share)="share($event)"></app-photo-card>
+    <app-photo-card [photo]="photo" (share)="share($event)"></app-photo-card>
   </div>
 </div>
 
@@ -11,5 +11,8 @@
 </div>
 
 <div class="fetch-button-wrapper">
-  <button md-raised-button class="fetch-button" color="primary" (click)="fetchNextPhotos.emit()">more...</button>
+  <button *ngIf="!isFetching" md-raised-button class="fetch-button" color="primary" (click)="fetchNextPhotos.emit()">more...</button>
+  <div *ngIf="isFetching">
+    <md-progress-circle [mode]="spinerMode"></md-progress-circle>
+  </div>
 </div>

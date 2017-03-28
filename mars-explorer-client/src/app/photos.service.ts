@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Photo } from './photo';
-import { NasaService} from './nasa.service';
+import { NasaService } from './nasa.service';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -11,16 +11,20 @@ export class PhotosService {
   private pageSize = 12;
 
   photo$: Subject<Photo[]>;
+  isFetching$: Subject<boolean>;
 
-  constructor( private nasaService:NasaService) {
+  constructor(private nasaService: NasaService) {
     this.photo$ = new Subject();
-   }
+    this.isFetching$ = new Subject();
+  }
 
   fetchNextPage(cameraCode): Promise<Photo[]> {
     this.page++;
+    this.isFetching$.next(true);
     return this.fetch(this.page, this.pageSize, cameraCode).then((photos) => {
       this.photos = this.photos.concat(photos);
       this.photo$.next(this.photos);
+      this.isFetching$.next(false);
       return this.photos;
     });
   }
@@ -28,9 +32,12 @@ export class PhotosService {
 
   refetch(cameraCode): Promise<Photo[]> {
     this.page = 0;
+    this.photo$.next([]);
+    this.isFetching$.next(true);
     return this.fetch(this.page, this.pageSize, cameraCode).then((photos) => {
       this.photos = photos;
       this.photo$.next(this.photos);
+      this.isFetching$.next(false);
       return this.photos;
     });
   }
