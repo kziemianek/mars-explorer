@@ -13,6 +13,6 @@
 <div class="fetch-button-wrapper">
   <button *ngIf="!isFetching" md-raised-button class="fetch-button" color="primary" (click)="fetchNextPhotos.emit()">more...</button>
   <div *ngIf="isFetching">
-    <md-progress-circle [mode]="spinerMode"></md-progress-circle>
+    <md-progress-spinner [mode]="spinerMode"></md-progress-spinner>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Photo } from '../photo';
-import { MdDialogRef } from '@angular/material';
+import { MdDialogRef, MdDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-photo-dialog',
@@ -11,8 +11,8 @@ export class PhotoDialogComponent implements OnInit {
 
   photo: Photo;
 
-  constructor(private mdDialogRef: MdDialogRef<any>) {
-    this.photo = mdDialogRef.config.data.photo;
+  constructor(private mdDialogRef: MdDialogRef<any>, private config: MdDialogConfig) {
+    this.photo = config.data.photo;
   }
 
   ngOnInit() {
